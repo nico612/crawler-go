@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package greeter;
+
+option go_package = "proto3/v1";
+
+
+// 定义服务
+service Greeter {
+  rpc Hello(Request) returns (Response) {}
+}
+
+message Request {
+  string name = 1;
+}
+
+message Response {
+  string greeting = 1;
+}

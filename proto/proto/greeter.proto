@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package greeter;
+
+option go_package = "proto/greeter";
+
+import "google/api/annotations.proto";
+
+
+// 定义服务
+service Greeter {
+  rpc Hello(Request) returns (Response) {
+    option (google.api.http) = {
+      post: "/greeter/hello"
+      body: "*"
+    };
+  }
+}
+
+message Request {
+  string name = 1;
+}
+
+message Response {
+  string greeting = 1;
+}
